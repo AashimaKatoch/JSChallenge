@@ -128,3 +128,74 @@ rpsFrontEnd(yourChoice.id,botChoice,message);
  }
 
 
+ // Challenge 4: Change the color of buttons
+  var all_button = document.getElementsByTagName('button');
+
+  var coppyAllButton = [];
+
+  for(let i=0;i<all_button.length;i++)
+  {
+    coppyAllButton.push(all_button[i].classList[1]);
+  }
+
+  function buttonColorChange(buttonThingy)
+  {
+     if(buttonThingy.value==='red')
+     {
+        buttonRed();
+     } else if(buttonThingy.value==='green')
+     {
+        buttonGreen();
+     }else if(buttonThingy.value==='random')
+     {
+        randomColors();
+     }
+     else if(buttonThingy.value==='reset')
+     {
+        buttonReset();
+     }
+
+  }
+
+  function buttonRed()
+  {
+    for(let i =0;i<all_button.length;i++)
+    {
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add('btn-danger');
+    }
+  }
+
+  function buttonGreen()
+  {
+    for(let i =0;i<all_button.length;i++)
+    {
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add('btn-success');
+    }
+  }
+
+  function buttonReset()
+  {
+    for(let i =0;i<all_button.length;i++)
+    {
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add(coppyAllButton[i]);
+    }
+  }
+
+
+  function randomColors()
+  {
+    var choices = ['btn-primary','btn-success','btn-warning','btn-danger'];
+
+    for(let i =0;i<all_button.length;i++)
+    {
+        let randomnum =  Math.floor(Math.random()*4);
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add(choices[randomnum]);
+    }
+    }
+  
+
+
